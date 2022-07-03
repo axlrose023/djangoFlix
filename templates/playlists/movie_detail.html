@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load rating %}
+{% block head_title %}
+    {{ object.title }} /
+    {{ block.super }}
+{% endblock %}
+
+
+
+{% block content %}
+
+
+
+    <section class="section-content padding-y bg">
+        <div class="container">
+
+            <!-- ============================ COMPONENT 1 ================================= -->
+
+            <div class="card">
+                <div class="row no-gutters">
+                    <aside class="col-md-6">
+                        <article class="gallery-wrap">
+                            <div class="video-big-wrap">
+                                <h4>Trailer: {{ object.title }}</h4>
+                                {% include 'videos/embed.html' with video_id=object.get_video_id %}
+                            </div> <!-- img-big-wrap.// -->
+                        </article> <!-- gallery-wrap .end// -->
+                    </aside>
+                    <main class="col-md-6 border-left">
+                        <article class="content-body">
+
+                            <h2 class="title"><strong>{{ object.title }}</strong></h2>
+
+                            <div class="mb-3">
+                                <var class="action-h4"><i>{{ object.category }}</i></var>
+                            </div>
+
+                            <p><b>{{ object.description }}</b></p>
+
+                            <hr>
+                            <div class="row">
+                                <div class="item-option-select">
+
+                                    <div class="btn-group" role="group">
+                                        {% for season in object.seasons %}
+                                            <a href="{{ season.get_absolute_url }}" class="btn btn-light"
+                                               aria-current="page">{{ season.title }}</a>
+                                        {% endfor %}
+                                    </div>
+                                    <div class="rating">
+                                        {% rating object=object %}
+                                    </div>
+                                </div>
+                            </div> <!-- row.// -->
+
+
+                        </article> <!-- product-info-aside .// -->
+                    </main> <!-- col.// -->
+                </div> <!-- row.// -->
+            </div> <!-- card.// -->
+            <!-- ============================ COMPONENT 1 END .// ================================= -->
+
+            <br>
+
+            <div class="row">
+                <div class="col-md-9">
+
+                    <header class="section-heading">
+                        <h3>Profile Reviews </h3>
+
+                    </header>
+
+                    <article class="box mb-3">
+                        <div class="icontext w-100">
+                            <img src="" class="img-xs icon rounded-circle">
+                            <div class="text">
+                                <span class="date text-muted float-md-right">{{ object.timestamp }}</span>
+                                <h6 class="mb-1">Alexey Sloboda</h6>
+
+                            </div>
+                        </div> <!-- icontext.// -->
+                    </article>
+
+
+                </div> <!-- col.// -->
+            </div> <!-- row.// -->
+
+
+        </div> <!-- container .//  -->
+    </section>
+
+{% endblock %}

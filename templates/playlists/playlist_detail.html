@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block head_title %}
+    {{ object.title }} /
+    {{ block.super }}
+{% endblock %}
+
+
+
+{% block content %}
+<h1>{{ object.title }}</h1>
+    <h4>{{ object.slug }}</h4>
+{% endblock %}

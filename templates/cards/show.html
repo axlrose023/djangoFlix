@@ -1,0 +1,7 @@
+{% load rating %}
+
+<div class="container">
+    <a style="color: slategray;" href="{{ show.get_absolute_url }}">{{ show }}
+    <strong>{% rating object=show rating_only=True %}</strong>
+    </a>
+</div>

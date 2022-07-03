@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="container" style="margin-top: 100px">
+        <div class="row">
+            <div class="col-md-4 offset-md-4">
+                <div class="card">
+                    <div class="card-header text-white bg-success">
+                        <div class="card-title"><strong>
+                            <div class="navbar-brand" style="animation: alternate-reverse">SlobodaFlix</div>
+                        </strong></div>
+                    </div>
+                    <br>
+                    <div class="card-body">
+                        <form method="post">
+                            <div class="form-group">
+                                <table class="table table-hover">{{ form.as_table }}</table>
+                                {% csrf_token %}
+                            </div>
+                            <br>
+                            <button class="btn btn-success btn-lg" type="submit">Sign Up</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
